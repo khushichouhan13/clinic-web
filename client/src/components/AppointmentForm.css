@@ -1,0 +1,294 @@
+.booking-section {
+  background: 
+    radial-gradient(circle at 10% 20%, hsla(var(--primary-hue), 100%, 95%, 0.6) 0%, transparent 45%),
+    radial-gradient(circle at 90% 80%, hsla(175, 100%, 94%, 0.5) 0%, transparent 45%),
+    var(--bg-main);
+  position: relative;
+  overflow: hidden;
+}
+
+.booking-section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M10 10 H 90 V 90 H 10 Z' fill='none' stroke='rgba(2, 132, 199, 0.02)' stroke-width='1'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+.booking-container {
+  position: relative;
+  z-index: 1;
+}
+
+.booking-form-card {
+  max-width: 850px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(30px) saturate(170%);
+  -webkit-backdrop-filter: blur(30px) saturate(170%);
+  padding: 60px 50px;
+  border-radius: var(--radius-lg);
+  box-shadow: 
+    0 4px 30px rgba(0, 0, 0, 0.01),
+    0 30px 70px rgba(15, 23, 42, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  transition: all var(--transition-normal);
+}
+
+.booking-form-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.02),
+    0 40px 90px rgba(15, 23, 42, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.9);
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.form-header h2 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  letter-spacing: -1px;
+}
+
+.form-header p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.appointment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: fadeInUp 0.6s var(--transition-normal) both;
+}
+
+.form-group:nth-child(1) { animation-delay: 0.05s; }
+.form-group:nth-child(2) { animation-delay: 0.1s; }
+.form-group:nth-child(3) { animation-delay: 0.15s; }
+.form-group:nth-child(4) { animation-delay: 0.2s; }
+.form-group:nth-child(5) { animation-delay: 0.25s; }
+.form-group:nth-child(6) { animation-delay: 0.3s; }
+
+.textarea-group {
+  grid-column: span 2;
+}
+
+.form-group label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-left: 2px;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+  transition: all var(--transition-normal);
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.input-icon {
+  position: absolute;
+  left: 18px;
+  color: var(--text-muted);
+  pointer-events: none;
+  transition: all var(--transition-normal);
+}
+
+.textarea-icon {
+  top: 18px;
+}
+
+.input-wrapper input,
+.input-wrapper select,
+.input-wrapper textarea {
+  width: 100%;
+  padding: 16px 18px 16px 52px;
+  border: 1.5px solid rgba(15, 23, 42, 0.08);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  font-weight: 500;
+  outline: none;
+  transition: all var(--transition-normal);
+}
+
+/* Hide standard datepicker styles where possible to look custom */
+.input-wrapper input[type="date"] {
+  cursor: pointer;
+}
+
+.input-wrapper:hover {
+  background: #ffffff;
+  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.04);
+}
+
+.input-wrapper:hover input,
+.input-wrapper:hover select,
+.input-wrapper:hover textarea {
+  border-color: rgba(2, 132, 199, 0.25);
+}
+
+.input-wrapper:focus-within {
+  background: #ffffff;
+  box-shadow: 
+    0 10px 25px rgba(2, 132, 199, 0.08),
+    0 0 0 4px rgba(2, 132, 199, 0.15);
+  transform: translateY(-2px);
+}
+
+.input-wrapper:focus-within input,
+.input-wrapper:focus-within select,
+.input-wrapper:focus-within textarea {
+  border-color: var(--primary);
+}
+
+.input-wrapper:focus-within .input-icon {
+  color: var(--primary);
+  transform: scale(1.1);
+}
+
+.input-wrapper input.input-error,
+.input-wrapper select.input-error {
+  border-color: #ef4444 !important;
+  background-color: rgba(239, 68, 68, 0.02);
+}
+
+.error-text {
+  font-size: 0.8rem;
+  color: #ef4444;
+  font-weight: 600;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-submit {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #fff;
+  padding: 18px;
+  border-radius: var(--radius-sm);
+  font-size: 1.05rem;
+  font-weight: 700;
+  width: 100%;
+  margin-top: 15px;
+  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.25);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all var(--transition-normal);
+}
+
+.btn-submit:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(2, 132, 199, 0.45);
+}
+
+.btn-submit:active:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.btn-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Spinner */
+.spinner {
+  width: 22px;
+  height: 22px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Toast styling */
+.toast-notification {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 16px 24px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 1100;
+  font-weight: 600;
+  animation: fadeInUp 0.3s ease forwards;
+}
+
+.toast-success {
+  background-color: rgba(240, 253, 250, 0.9);
+  color: #0f766e;
+  border: 1px solid #99f6e4;
+}
+
+.toast-error {
+  background-color: rgba(254, 242, 242, 0.9);
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+@media (max-width: 768px) {
+  .booking-form-card {
+    padding: 40px 24px;
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .textarea-group {
+    grid-column: span 1;
+  }
+}

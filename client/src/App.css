@@ -1,0 +1,4 @@
+/* App specific layout styles (global overrides are in index.css) */
+main {
+  overflow-x: hidden;
+}
